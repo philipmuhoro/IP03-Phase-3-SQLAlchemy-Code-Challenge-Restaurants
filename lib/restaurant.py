@@ -60,6 +60,9 @@ class Review(Base):
     customer_id = Column(Integer, ForeignKey('customers.id'))
     restaurant = relationship('Restaurant', back_populates='reviews')
     customer = relationship('Customer', back_populates='reviews')
+    
+    def full_review(self):
+        return f"Review for {self.restaurant.name} by {self.customer.full_name()}: {self.star_rating} stars."
 
 
 
