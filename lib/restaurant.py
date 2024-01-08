@@ -17,7 +17,13 @@ class Customer(Base):
 
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
+    
     def favorite_restaurant(self):
         return max(self.reviews, key=lambda review: review.star_rating).restaurant
+    
+    def add_review(self, restaurant, rating):
+        review = review(customer=self, restaurant=restaurant, star_rating=rating)
+        session.add(review)
+        session.commit()
 
     
