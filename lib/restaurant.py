@@ -40,6 +40,11 @@ class Restaurant(Base):
     price = Column(Integer)
 
     reviews = relationship('Review', back_populates='restaurant')
+    
+    @classmethod
+    def fanciest(cls):
+        return session.query(cls).order_by(desc(cls.price)).first()
+
 
 
     
