@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from lib import Base, Restaurant, Customer, Review
 from restaurant import Base, engine, session, Customer, Restaurant, Review
 # Assuming you have created the engine and session
 engine = create_engine('sqlite:///:memory:')
