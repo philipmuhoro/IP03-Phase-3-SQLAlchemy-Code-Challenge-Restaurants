@@ -1,4 +1,5 @@
 from app import Restaurant, Customer, Review, session
+from sqlalchemy.orm import sessionmaker
 
 restaurant1 = Restaurant(name='Origin Coffee House', price=3000)
 restaurant2 = Restaurant(name='Views Coffee House', price=4500)
@@ -15,4 +16,5 @@ review4 = Review(restaurant=restaurant3, customer=customer3, star_rating=5)
 review5 = Review(restaurant=restaurant1, customer=customer1, star_rating=5)
 
 session.add_all([restaurant1, restaurant2, restaurant3, customer1, customer2, customer3, review1, review2, review3, review4, review5])
+Session = sessionmaker()
 session.commit()
